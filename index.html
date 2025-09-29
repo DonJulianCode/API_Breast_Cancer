@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto - API Cáncer de Mama</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    header {
+      background: rgba(44, 62, 80, 0.95);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    header p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+    
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+    
+    .card-icon {
+      font-size: 32px;
+      margin-right: 15px;
+      vertical-align: middle;
+    }
+    
+    h2 {
+      color: #2c3e50;
+      font-size: 26px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .code-block {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      overflow-x: auto;
+      margin: 15px 0;
+      border-left: 4px solid #3498db;
+    }
+    
+    .highlight {
+      color: #f39c12;
+      font-weight: bold;
+    }
+    
+    .button {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    }
+    
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    .feature-item {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 3px solid #667eea;
+    }
+    
+    footer {
+      background: rgba(44, 62, 80, 0.95);
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+    
+    footer p {
+      font-size: 16px;
+    }
+    
+    .tech-stack {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    
+    .tech-badge {
+      background: #3498db;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔬 API de Predicción de Cáncer de Mama</h1>
+    <p>Proyecto de Machine Learning con despliegue en Render</p>
+  </header>
+  
+  <main>
+    <div class="card">
+      <h2><span class="card-icon">📋</span> Descripción</h2>
+      <p>
+        Esta API utiliza un modelo de <strong>Random Forest</strong> entrenado con un dataset de cáncer de mama 
+        para predecir si un tumor es <em>benigno</em> o <em>maligno</em>, proporcionando además un porcentaje de confianza 
+        en la predicción.
+      </p>
+      <div class="feature-list">
+        <div class="feature-item">
+          <strong>🎯 Precisión</strong><br>
+          Modelo optimizado con alta precisión
+        </div>
+        <div class="feature-item">
+          <strong>⚡ Rápido</strong><br>
+          Respuestas en milisegundos
+        </div>
+        <div class="feature-item">
+          <strong>🔒 Confiable</strong><br>
+          Validado con datos reales
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <h2><span class="card-icon">🌐</span> Endpoint principal</h2>
+      <p>La API está desplegada y disponible en Render:</p>
+      <div class="code-block">
+        <span class="highlight">URL:</span> https://api-breast-cancer.onrender.com/
+      </div>
+      
+      <h3 style="margin-top: 25px; color: #34495e;">Ejemplo de uso (POST):</h3>
+      <div class="code-block">
+{<br>
+  &nbsp;&nbsp;<span class="highlight">"features"</span>: [14.2, 20.1, 90.2, 500.1, 0.12, ...]<br>
+}
+      </div>
+      
+      <p style="margin-top: 15px;">
+        <a href="https://api-breast-cancer.onrender.com/" target="_blank" class="button">
+          Ir a la API →
+        </a>
+      </p>
+    </div>
+    
+    <div class="card">
+      <h2><span class="card-icon">💻</span> Repositorio</h2>
+      <p>
+        El código completo del proyecto está disponible en GitHub. Puedes explorar la implementación, 
+        el entrenamiento del modelo y la arquitectura de la API.
+      </p>
+      <p style="margin-top: 20px;">
+        <a href="https://github.com/DonJulianCode" target="_blank" class="button">
+          Ver en GitHub →
+        </a>
+      </p>
+    </div>
+    
+    <div class="card">
+      <h2><span class="card-icon">🛠️</span> Tecnologías utilizadas</h2>
+      <div class="tech-stack">
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">Flask</span>
+        <span class="tech-badge">Scikit-learn</span>
+        <span class="tech-badge">Random Forest</span>
+        <span class="tech-badge">Render</span>
+        <span class="tech-badge">Machine Learning</span>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>Creado con ❤️ usando Python, Flask y Render</p>
+    <p style="margin-top: 10px; opacity: 0.8;">© 2025 - Proyecto de Machine Learning</p>
+  </footer>
+</body>
+</html>
